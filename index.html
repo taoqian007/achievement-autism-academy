@@ -68,7 +68,7 @@
       </div>
       <div class="belief-item">
         <span class="belief-icon">❤️</span>
-        <span>Taught by a special needs mom</span>
+        <span>Taught by a mom with a kid of autism</span>
       </div>
     </div>
   </section>
@@ -129,7 +129,7 @@
     <div class="container">
       <div class="section-header">
         <h2>About the Teacher</h2>
-        <p>Meet Linlin — educator, special ed teacher, and autism mom.</p>
+        <p>Meet Linlin — educator, special ed teacher, and mom with a kid of autism.</p>
       </div>
       <div class="about-grid">
         <div class="about-avatar-wrap">
@@ -142,7 +142,7 @@
             <span class="cred-badge">M.A. in English</span>
             <span class="cred-badge">Special Ed Credential (SDC)</span>
             <span class="cred-badge">ESL Specialist</span>
-            <span class="cred-badge">Autism Mom</span>
+            <span class="cred-badge">Mom with a Kid of Autism</span>
           </div>
         </div>
         <div class="about-content">
@@ -163,7 +163,7 @@
           <div class="about-item">
             <div class="about-dot blue-light"></div>
             <div>
-              <h4>💛 Autism Mom — Living It Every Day</h4>
+              <h4>💛 Mom with a Kid of Autism — Living It Every Day</h4>
               <p>Mom of a son with autism. She has closely followed his ABA therapy, speech therapy, OT, and PT. Since March 2023, she has been his homeschooling teacher, successfully bringing him to 4th-grade level in Math and English using her signature sensory-loaded, hands-on approach.</p>
               <p style="margin-top:0.5rem;">She is also mom to a typically developing daughter, giving her a full picture of how both typical and atypical children grow, play, and learn.</p>
             </div>
@@ -222,7 +222,7 @@
             <span class="contact-icon">📧</span>
             <div>
               <h4>Email</h4>
-              <p><a href="mailto:info@achievementautismacademy.com">info@achievementautismacademy.com</a></p>
+              <p><a href="mailto:achievementautismacademy@gmail.com">achievementautismacademy@gmail.com</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -240,25 +240,29 @@
             </div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm"
+              name="contact" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;"><input name="bot-field" /></p>
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>
-              <input type="text" id="name" placeholder="e.g. Sarah Johnson" required />
+              <input type="text" id="name" name="name" placeholder="e.g. Sarah Johnson" required />
             </div>
             <div class="form-group">
               <label for="email">Email Address *</label>
-              <input type="email" id="email" placeholder="you@email.com" required />
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="(408) 000-0000" />
+              <input type="tel" id="phone" name="phone" placeholder="(408) 000-0000" />
             </div>
             <div class="form-group">
               <label for="service">Service Interested In</label>
-              <select id="service">
+              <select id="service" name="service">
                 <option value="">Select a service…</option>
                 <option value="math-english">Math &amp; English Tutoring</option>
                 <option value="chores">Household Chore Training</option>
@@ -269,7 +273,7 @@
           </div>
           <div class="form-group">
             <label for="message">Tell us about your child *</label>
-            <textarea id="message" rows="5" placeholder="e.g. My son is 9 years old with autism. He needs help with reading comprehension and building daily routines…" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="e.g. My son is 9 years old with autism. He needs help with reading comprehension and building daily routines…" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full">Send Message 📩</button>
           <p class="form-note">We'll get back to you within 24 hours. Your information is kept private.</p>

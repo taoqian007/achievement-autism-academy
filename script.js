@@ -72,7 +72,7 @@ document.querySelectorAll(
 const form  = document.getElementById('contactForm');
 const toast = createToast();
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name    = document.getElementById('name').value.trim();
@@ -84,17 +84,30 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simulate form submission (replace with Formspree / EmailJS action)
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.textContent = 'Sending…';
   submitBtn.disabled = true;
 
-  setTimeout(() => {
-    form.reset();
+  try {
+    const formData = new FormData(form);
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    if (response.ok) {
+      form.reset();
+      showToast('✅ Message sent! We\'ll be in touch within 24 hours.', '#0a2a6e');
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch (err) {
+    showToast('⚠️ Something went wrong. Please email us directly.', '#c0392b');
+  } finally {
     submitBtn.textContent = 'Send Message 📩';
     submitBtn.disabled = false;
-    showToast('✅ Message sent! We\'ll be in touch within 24 hours.', '#0a2a6e');
-  }, 1200);
+  }
 });
 
 /* ---------- Toast helpers ---------- */
